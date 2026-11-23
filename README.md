@@ -37,11 +37,41 @@ The security of RSA relies on the difficulty of factoring large numbers; thus, c
 
 ## Program:
 
+```
+#include <stdio.h>
 
+int main()
+{
+    int p = 3, q = 11;
+    int n, phi, e = 3, d = 7;
+    int msg, encrypted, decrypted;
+
+    n = p * q;
+    phi = (p - 1) * (q - 1);
+    printf("Developer: ADITHYA NM\n");
+    printf("Enter a message (number): ");
+    scanf("%d", &msg);
+
+    encrypted = 1;
+    for (int i = 0; i < e; i++)
+        encrypted = (encrypted * msg) % n;
+
+    decrypted = 1;
+    for (int i = 0; i < d; i++)
+        decrypted = (decrypted * encrypted) % n;
+    printf("Public Key: (%d, %d)\n", e, n);
+    printf("Private Key: (%d, %d)\n", d, n);
+    printf("Encrypted message: %d\n", encrypted);
+    printf("Decrypted message: %d\n", decrypted);
+
+    return 0;
+}
+```
 
 
 ## Output:
 
+<img width="1731" height="682" alt="image" src="https://github.com/user-attachments/assets/3d815303-2d86-4c8e-8e74-127214a73697" />
 
 
 ## Result:
